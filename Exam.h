@@ -15,7 +15,7 @@
 bool compare(char, char);
 
 // to calculate the grade avrage by the 'int' student grade divided by 'int' total grade return double
-double avrage(int, int);
+double average(double, double);
 
 // check the letter of the grade by using if else to fine the right letter
 int check(double);
