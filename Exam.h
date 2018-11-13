@@ -18,7 +18,7 @@ bool compare(char, char);
 double average(double, double);
 
 // check the letter of the grade by using if else to fine the right letter
-int check(double);
+grade check(double);
 
 void readFile();
 

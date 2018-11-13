@@ -7,27 +7,26 @@
 
 #include "Exam.h"
 
-int check(double g){
- 
+grade check(double g){
+
   if(g >= 90.0 && g <= 100.0){
-    return 1; //A
+    return A; 
   else if(g >= 80.0 && <= 89.9){
-    return 2; //B
+    return B; 
   else if(g >= 70.0 && <= 79.9){
-    return  3; //C
+    return  C; 
   else if(g >= 60.0 && g <= 69.90{
-    return 4; //D
+    return D; 
   else {
-     return 5; //F
-  }
-  
+     return F; 
+  } 
 }
 
 bool compare(char s, char a){
-   bool t = FALSE;
    if(s == a)
-      t = TRUE;
-   return t;
+      return TRUE;
+   else
+     return FALSE;
 }
 
 double average(double s, double a){
