@@ -1,4 +1,4 @@
-//
+T//
 //  Class.h
 //  
 //
@@ -11,6 +11,6 @@
 #include <stdio.h>
 #include "types.h"
 
-Class *  showAllClasses();
+Class * showAllClasses();
 
 #endif /* Class_h */

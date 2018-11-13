@@ -22,18 +22,16 @@ Class * showAllClasses(){
      int id;
      char * name;
      Class * classes = malloc(2*sizeof(Class)); 
-     Class * temp = classes;
- 
+     
      if(fp){
        while(fscanf(fp, "%d %s", &id, name) != EOF){
-           temp->id = id;
-           temp->name = name;
-           temp++;     
+           classes->id = id;
+           classes->name = name;
+           classes++;     
        }
      }
      return classes;
  }
- fclose(fp);
 }
 
 static void
@@ -42,7 +40,7 @@ activate (GtkApplication *app,
 {
     GtkWidget *window;
     GtkWidget *button[2];
-    GtkWidget *button_box[2];
+    GtkWidget *button_box[2]
     Class * array = showAllClasses();
 
     window = gtk_application_window_new (app);
@@ -50,11 +48,11 @@ activate (GtkApplication *app,
     gtk_window_set_default_size (GTK_WINDOW (window), 200, 200);
     
     int i = 0;
-    while(array != NULL){ //fix so it is only going as long as the  array is
+    while(array != NULL)
        button_box[i] = gtk_button_box_new (GTK_ORIENTATION_HORIZONTAL);
        gtk_container_add (GTK_CONTAINER (window), button_box[i]);
        
-       button[i] = gtk_button_new_with_label (array->name);
+       button[i] = gtk_button_new_with_label (*array->name);
        //g_signal_connect (button, "clicked", G_CALLBACK (print_hello), NULL);
        //g_signal_connect_swapped (button, "clicked", G_CALLBACK (gtk_widget_destroy), window);
        gtk_container_add (GTK_CONTAINER (button_box[i]), button[i]);
