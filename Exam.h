@@ -12,16 +12,30 @@
 #include <stdio.h>
 
 // to compare to 'char' student answer and the 'char' correct answer return boolean
-bool compare(char, char);
-
-// to calculate the grade avrage by the 'int' student grade divided by 'int' total grade return double
-double average(double, double);
+enum bool compare(char, char);
 
 // check the letter of the grade by using if else to fine the right letter
-grade check(double);
+enum grade check(double);
 
-void readFile();
+//returns array of correct answers
+Exam * getAnswers(char * filename);
 
+//get the Name of the class from the file located at the top of the file
+char * getClassName(char * filename);
 
+//get the names of the students to be displayed
+Student * getNames(char * filename);
+
+//get each students answers
+Student * getStudentAnswers(char * filename);
+
+//returns the number of students in the class
+int getNumOfS(char * filename);
+
+//returns the number of questions on the exam
+int getNumOfQ(char * filename);
+
+//based on answers of he students and the answers of the exam 
+double  computerScore(char[], char[]);
 
 #endif /* Exam_h */

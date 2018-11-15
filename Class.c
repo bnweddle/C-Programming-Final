@@ -6,13 +6,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <gtk/gtk.h>
+#include "Exam.c"
 
 Class* showAllClasses(){
 
     FILE* fp;
 
     int  num = 0;
-    //char * name = "";
     int id = 0;
 
     fp = fopen("Classes.txt", "r");
@@ -37,7 +37,9 @@ Class* showAllClasses(){
 
 int main(int argc, char *argv[]) {
 
- Class * classes = showAllClasses();
+// Class * classes = showAllClasses();
+  char * name = getClassName("exam308.txt");
+  printf("%s", name);
 /*
   for (int i = 0; i < 2; i++) {
 	printf("%s\n", classes[i].name);

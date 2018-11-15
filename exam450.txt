@@ -1,4 +1,4 @@
-2,CIS450
+CIS450
 5 5
 C,C,C,C,A
 Michelle D,C,B,C,A

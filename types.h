@@ -1,8 +1,8 @@
 #ifndef types_h
 #define types_h
 
-typedef enum { FALSE, TRUE } bool;
-typedef enum { F, A, B, C, D} grade;
+enum bool { FALSE, TRUE };
+enum grade { A, B, C, D, F};
 
 typedef struct Class {
     int num;
