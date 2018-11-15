@@ -1,0 +1,8 @@
+1,CIS308
+5 5 
+A,B,C,D,E
+Bethany A,B,B,D,E
+David A,D,E,B,E
+Hannah A,D,E,D,E
+Charlie A,B,C,E,D
+Katie A,B,C,C,D
