@@ -5,6 +5,7 @@ typedef enum { FALSE, TRUE } bool;
 typedef enum { F, A, B, C, D} grade;
 
 typedef struct Class {
+    int num;
     int id;
     char * name;
 }Class;
