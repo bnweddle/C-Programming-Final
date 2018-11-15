@@ -1,50 +1,59 @@
 //
 //  Class.c
+//  
+//
 //  Created by Ahmed Alkhraissi on 11/9/18.
+//
+
 
 #include "Class.h"
 #include <stdio.h>
-#include <string.h>
+
 #include <gtk/gtk.h>
 
-Class* showAllClasses(){
+Class * showAllClasses(){
+  FILE * fp = fopen("Classes.txt", "r");
+  
+  if(fp == NULL){
+      return 0;
+  }
+  else{
+    
+     int id;
+     char * name;
+     Class * classes = malloc(2*sizeof(Class)); 
+     //Class * temp = classes;
+ 
+     if(fp){
+         while(fscanf(fp, "%d, %s", &id, name) != EOF){
+up vote
+12
+down vote
+FILE* fp;
+char buffer[255];
 
-    FILE* fp;
+fp = fopen("file.txt", "r");
 
-    int  num = 0;
-    //char * name = "";
-    int id = 0;
+while(fgets(buffer, 255, (FILE*) fp)) {
+    printf("%s\n", buffer);
+}
 
-    fp = fopen("Classes.txt", "r");
-    fscanf(fp, "%d\n", &num);
-
-    Class * c = malloc(num*sizeof(Class));
-    c->num = num;
-   
-    char line[20];
-    for(int i = 0; i < num; i++){
-       if(fgets(line, 20, fp)!=NULL){
-        char * token = strtok(line, ",");
-	c[i].id = atoi(token);
-        
-        token = strtok(NULL, ","); // token = CIS308
-	c[i].name = token;
+fclose(fp);           printf("%d, %s", id, name);
+           //temp->id = id;
+           //temp->name = name;
+           //temp++;     
        }
-    }
-    fclose(fp);
-    return c;
+     }
+     return classes;
+ }
+ fclose(fp);
 }
 
 int main(int argc, char *argv[]) {
 
- Class * classes = showAllClasses();
-/*
-  for (int i = 0; i < 2; i++) {
-	printf("%s\n", classes[i].name);
-	printf("%d\n", classes[i].id);
-  }
-
-  GtkWidget *window;
+  showAllClasses();
+  /*
+	GtkWidget *window;
   GtkWidget *vbox;
 
   GtkWidget *class1;
@@ -61,8 +70,8 @@ int main(int argc, char *argv[]) {
   vbox = gtk_vbox_new(TRUE, 1);
   gtk_container_add(GTK_CONTAINER(window), vbox);
 
-  class1 = gtk_button_new_with_label(classes[0].name);
-  class2 = gtk_button_new_with_label(classes[1].name);
+  class1 = gtk_button_new_with_label("Settings");
+  class2 = gtk_button_new_with_label("Accounts");
 
   gtk_box_pack_start(GTK_BOX(vbox), class1, TRUE, TRUE, 0);
   gtk_box_pack_start(GTK_BOX(vbox), class2, TRUE, TRUE, 0);
