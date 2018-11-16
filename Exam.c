@@ -18,18 +18,38 @@ enum grade check(double g){
     return B; }
   else if(g >= 70.0 && g <= 79.9){
     return  C; }
-  else if(g >= 60.0 && g <= 69.90){
+  else if(g >= 60.0 && g <= 69.9){
     return D; }
   else {
      return F; 
   } 
 }
 
-enum bool compare(char s, char a){
-   if(s == a)
+enum bool compare(char e, char s){
+   if(e  == s)
       return TRUE;
    else
      return FALSE;
+}
+
+double computeScore(char * exam, char * student){
+  //This works! 
+  //first chars of strings
+   char * e = exam;
+   char * s = student;
+   double eCount = 0.0;
+   double count = 0.0;
+
+   while(*e != '\0'){
+     if(compare(*e,*s)==TRUE)
+       count++;
+     eCount++;
+     e++;
+     s++;
+   }
+   count = (count/eCount) * 100;
+   printf("%f\n", count);
+   return count;
 }
 
 Student * getStudentInfo(){

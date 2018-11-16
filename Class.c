@@ -66,6 +66,8 @@ int main(int argc, char *argv[]) {
      printf("Id: %d Answers: %s\n", studentExam2[i].id, studentExam2[i].answers);
   }
 
+  computeScore(exam1->answers,studentExam1[0].answers);
+
 /*
   GtkWidget *window;
   GtkWidget *vbox;
