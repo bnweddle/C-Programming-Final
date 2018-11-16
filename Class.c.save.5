@@ -1,0 +1,60 @@
+//
+//  Class.c
+//  Created by Ahmed Alkhraissi on 11/9/18.
+
+#include "Class.h"
+#include <stdio.h>
+#include <string.h>
+#include <gtk/gtk.h>
+
+Class * showAllClasses(){
+
+    FILE* fp;
+
+    int  num = 0;
+   
+    fp = fopen("Classes.txt", "r");
+    fscanf(fp, "%d\n", &num);
+
+    Class * c = malloc(num*sizeof(Class));
+    c->num = num;
+   
+    char line[20];
+    for(int i = 0; i < num; i++){
+       if(fgets(line, 20, fp)!=NULL){
+        char * token = strtok(line, ",");
+	c[i].id = atoi(token);
+        
+        token = strtok(NULL, ","); // token = CIS308
+	c[i].name = token;
+       }
+    }
+    fclose(fp);
+    printf("%s", c[0].name);
+    printf("%d", c[0].id);
+     printf("%s", c[1].name);
+    printf("%d", c[1].id);
+
+    return c;
+}
+
+static void open_dialog(GtkWidget * buton, gpointer window){
+
+   GtkWidget * dialog;
+   dialog=gtk_file_chooser_dialog_new("Choose a file", GTK_WINDOW(window),
+   GTKFILE_CHOOSER_ACTION_OPEN, GTK_STOCK_OK, GTK_RESPONSE_OK, GTK_STOCK_CANCEL,
+   GTK_RESPONSE_CANCEL,NULL)
+   gtk_widget_showall(dialog);
+   gint resp=gtk_dialog_run(GTK_DIALOG(dialog));
+   if(resp == GTK_RESPONSE_OK)
+      g_print("%s\n",gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(dialog)));
+   else
+      g_print("You pressed cancel\n");
+   gtk_widget_destroy(dialog);
+}
+
+
+int main(int argc, char *argv[]) {
+
+  return 0;
+}
