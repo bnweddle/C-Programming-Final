@@ -27,7 +27,7 @@ Student * getStudentAnswers(char * filename, int numOfS);
 
 //should just read two lines, one line with the numOfS and numOfQ and then the check line with the exam answers
 //should read the given file and store the values of numOfS, numOfQ, answers in the Exam and return it
-Exam * getExamInfo(char * filename):
+Exam * getExamInfo(char * filename);
 
 //based on answers of he students and the answers of the exam 
 double  computerScore(char[], char[]);

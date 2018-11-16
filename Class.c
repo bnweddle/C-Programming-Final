@@ -39,6 +39,8 @@ int main(int argc, char *argv[]) {
 
   Class * classes = showAllClasses();
   Student * students = getStudentInfo();
+  Exam * exam1 = getExamInfo("exam308.txt");
+  Exam * exam2 = getExamInfo("exam450.txt");
 
  // gcc `pkg-config --cflags gtk+-3.0` -o Class Class.c `pkg-config --libs gtk+-3.0`
   int i;
@@ -49,6 +51,10 @@ int main(int argc, char *argv[]) {
   for(i=0; i < students->num; i++){
      printf("%d: %s\n", students[i].id, students[i].name);
   }
+
+  printf("NumOfQ: %d NumOfS: %d Answers: %s\n", exam1->numOfQ, exam1->numOfS, exam1->answers);
+  printf("NumOfQ: %d NumOfS: %d Answers: %s", exam2->numOfQ, exam2->numOfS, exam2->answers);
+
 /* 
 
   GtkWidget *window;

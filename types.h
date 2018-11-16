@@ -20,8 +20,8 @@ typedef struct Student{
 
 typedef struct Exam {
     char * answers;
-    int numStd;
-    int numQ;
+    int numOfS;
+    int numOfQ;
 }Exam;
 
 

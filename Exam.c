@@ -60,7 +60,27 @@ Student * getStudentInfo(){
     }
    fclose(fp);
    return s;
-} 
+}
+
+Exam * getExamInfo(char * filename){
+
+  FILE * fp = fopen(filename, "r");
+  Exam * e = malloc(sizeof(Exam));
+
+  int numOfS = 0;
+  int numOfQ = 0;
+  char * answers = "";
+
+  fscanf(fp, "%d %d\n", &numOfS, &numOfQ);
+  e->numOfS = numOfS;
+  e->numOfQ = numOfQ;
+
+  fscanf(fp, "%s\n", answers);
+  e->answers = answers;
+
+  fclose(fp);
+  return e;
+}
 
 
 
