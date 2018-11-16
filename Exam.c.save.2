@@ -32,6 +32,12 @@ enum bool compare(char s, char a){
      return FALSE;
 }
 
+Exam * getAnswers(char * filename){
+   //it is the third line.
+   int lineNumber = 3;
+    
+}
+
 Student * getStudentInfo(){
   //This works!! Don't change.
   FILE * fp;
@@ -46,7 +52,7 @@ Student * getStudentInfo(){
     for(int i = 0; i < num; i++){
        if(fgets(line, 40, fp)!=NULL){
         char * token = strtok(line, ",");
-        s[i].id = atoi(token);
+        s[i].id = atoi(strdup(token));
  
         token = strtok(NULL, ","); 
         s[i].name = strdup(token);
@@ -79,28 +85,30 @@ Exam * getExamInfo(char * filename){
 
 
 Student * getStudentAnswers(char * filename){
-  //This works now! 
+  //Working on this: results in segmentation fault
+
   FILE * fp = fopen(filename, "r");
   int numOfS = 0;
   int numOfQ = 0;
 
   fscanf(fp, "%d %d", &numOfS, &numOfQ);
+  printf("%d %d", numOfS, numOfQ);
 
   char * answers = malloc((numOfQ+1) *sizeof(char));
-  fscanf(fp, "%s\n", answers);
+  fscanf(fp, "%s", answers);
 
-  Student * s = malloc(numOfS * sizeof(Student));
-  s->num = numOfS;
-
-  char line[40];
-  for(int i = 0; i < numOfS; i++){
-     if(fgets(line, 40, fp) != NULL){
+  Student * s = malloc(numOfS*sizeof(Student));
+  char line[255];
+/*  for(int i = 0; i < numOfS; i++){
+     if(fgets(line, 255, fp) != NULL){
        char * token = strtok(line, ",");
+       printf("%s\n", token);
        s[i].id = atoi(strdup(token));
+
        token = strtok(NULL, ",");
        s[i].answers = strdup(token);
      }
-  }
+  }*/
   fclose(fp);
   return s;
 }
