@@ -12,6 +12,7 @@ typedef struct Class {
 
 typedef struct Student{
     int id;
+    int num;
     char * name;
     int grade;
     char * answers;

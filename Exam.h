@@ -24,7 +24,7 @@ Exam * getAnswers(char * filename);
 char * getClassName(char * filename);
 
 //get the names of the students to be displayed
-Student * getNames(char * filename);
+Student * getStudentInfo();
 
 //get each students answers
 Student * getStudentAnswers(char * filename);

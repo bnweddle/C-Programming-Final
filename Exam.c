@@ -35,13 +35,30 @@ Exam * getAnswers(char * filename){
     
 }
 
-char * getClassName(char * filename){
-   FILE * fp = fopen(filename, "r");
-   char * name = "";
+Student * getStudentInfo(){
+
+  FILE * fp;
+  fp = fopen("students.txt", "r");
+  int  num = 0;
+  
+  fscanf(fp, "%d\n", &num);
+  Student * s = malloc(num*sizeof(Student));
+  s->num = num;
    
-   fscanf(fp, "%s", name);
+  char line[40];
+    for(int i = 0; i < num; i++){
+       if(fgets(line, 40, fp)!=NULL){
+        char * token = strtok(line, ",");
+        c[i].id = atoi(strdup(token));
+ 
+        token = strtok(NULL, ","); // token = CIS308
+        c[i].name = strdup(token);
+       }
+    }
    fclose(fp);
-   return name; 
+   return c;
 } 
+
+
 
 
