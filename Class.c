@@ -42,16 +42,14 @@ int main(int argc, char *argv[]) {
 
  // gcc `pkg-config --cflags gtk+-3.0` -o Class Class.c `pkg-config --libs gtk+-3.0`
   int i;
-  for(i=0; i < 2; i++){
-     printf("%s\n", classes[i].name);
-     printf("%d\n", classes[i].id);
+  for(i=0; i < classes->num; i++){
+     printf("%d: %s\n", classes[i].id, classes[i].name);
   }
  
-  for(i=0; i < 9; i++){
-     printf("%s\n", students[i].name);
-     printf("%d\n", students[i].id);
+  for(i=0; i < students->num; i++){
+     printf("%d: %s\n", students[i].id, students[i].name);
   }
- 
+/* 
 
   GtkWidget *window;
   GtkWidget *vbox;
@@ -82,7 +80,7 @@ int main(int argc, char *argv[]) {
   gtk_widget_show_all(window);
 
   gtk_main();
-
+*/
    return 0;
 }
 

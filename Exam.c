@@ -6,6 +6,9 @@
 //
 
 #include "Exam.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
 enum grade check(double g){
  
@@ -36,7 +39,7 @@ Exam * getAnswers(char * filename){
 }
 
 Student * getStudentInfo(){
-
+  //This works!! Don't change.
   FILE * fp;
   fp = fopen("students.txt", "r");
   int  num = 0;
@@ -49,14 +52,14 @@ Student * getStudentInfo(){
     for(int i = 0; i < num; i++){
        if(fgets(line, 40, fp)!=NULL){
         char * token = strtok(line, ",");
-        c[i].id = atoi(strdup(token));
+        s[i].id = atoi(strdup(token));
  
-        token = strtok(NULL, ","); // token = CIS308
-        c[i].name = strdup(token);
+        token = strtok(NULL, ","); 
+        s[i].name = strdup(token);
        }
     }
    fclose(fp);
-   return c;
+   return s;
 } 
 
 
