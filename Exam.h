@@ -18,7 +18,7 @@ enum bool compare(char e, char s);
 enum grade check(double);
 
 //returns the grade letter;
-const char getGrade(enum grade g);
+char getGrade(enum grade g);
 
 //get the names of the students to be displayed: done already
 Student * getStudentInfo();
@@ -38,6 +38,12 @@ double computeScore(char * exam, char * student);//done already
 //Need to pass in the Student * from the file and then the specific Student * read from the exam file
 //Then assign the if a matching id is found, assign the name of the fs to the name of es 
 //then return the modified es
-Student * assignNames(Student * fs, Student * es);
+Student * assignNames(Student * fs, Student * es); //done already!
+
+//Assign the grades that are computed and get the Letter grade and assign it 
+//to the Student->grade for each student in the exam and then return the 
+//modified Student *: n(should be the one with the names-from assignNames)
+Student * assignGrades(Exam * e, Student * n, Student * es);//done already
+
 
 #endif /* Exam_h */

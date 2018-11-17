@@ -66,11 +66,6 @@ int main(int argc, char *argv[]) {
      printf("Id: %d Answers: %s\n", studentExam2[i].id, studentExam2[i].answers);
   }
 
-  double score = computeScore(exam1->answers,studentExam1[0].answers);
-  enum grade g = check(score);
-  const char c = getGrade(g);
-  printf("%c\n", c);
-
   Student * namesS1 = assignNames(students, studentExam1);
   for(i = 0; i < exam1->numOfS; i++){
      printf("%d: %s", namesS1[i].id, namesS1[i].name);
@@ -80,6 +75,19 @@ int main(int argc, char *argv[]) {
   for(i = 0; i < exam2->numOfS; i++){
      printf("%d: %s", namesS2[i].id, namesS2[i].name);
   }
+  printf("\n");
+  Student * grades1 = assignGrade(exam1, namesS1, studentExam1);
+  Student * grades2 = assignGrade(exam2, namesS2, studentExam2);
+ 
+  for(i = 0; i < exam1->numOfS; i++){
+     printf("%s %c\n", grades1[i].name, grades1[i].grade);
+  }
+  for(i = 0; i < exam2->numOfS; i++){
+     printf("%s %c\n", grades2[i].name, grades2[i].grade);
+  }
+
+
+//End of testing Methods
 /*  GtkWidget *window;
   GtkWidget *vbox;
 

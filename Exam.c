@@ -26,7 +26,7 @@ enum grade check(double g){
   }
 }
 
-const char getGrade(enum grade g)
+char getGrade(enum grade g)
 {
   switch(g){
     case A: return 'A'; break;
@@ -59,7 +59,7 @@ double computeScore(char * exam, char * student){
      s++;
    }
    count = (count/eCount) * 100;
-   printf("%f\n", count);
+//   printf("%f\n", count);
    return count;
 }
 
@@ -137,7 +137,7 @@ Student * getStudentAnswers(char * filename){
 }
 
 Student * assignNames(Student * fs, Student * es){
-  int count = 0;
+ //This works! 
  for(int j = 0; j < es->num; j++){
   for(int i = 0; i < fs->num; i++){
     //printf("%d\n", es->id);
@@ -147,4 +147,15 @@ Student * assignNames(Student * fs, Student * es){
     }
   }
   return es;
+}
+
+Student * assignGrade(Exam * e, Student * n, Student * es){
+  //Works: but outputs different than I want.
+  for(int i = 0; i < es->num; i++){
+    double score = computeScore(e->answers, es[i].answers);
+    enum grade g = check(score);
+    char c = getGrade(g);
+    n[i].grade = c;
+  }
+  return n;
 }
