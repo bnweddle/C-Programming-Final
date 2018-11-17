@@ -136,3 +136,15 @@ Student * getStudentAnswers(char * filename){
   return s;
 }
 
+Student * assignNames(Student * fs, Student * es){
+  int count = 0;
+ for(int j = 0; j < es->num; j++){
+  for(int i = 0; i < fs->num; i++){
+    //printf("%d\n", es->id);
+      if(fs[i].id == es[j].id){
+         es[j].name = fs[i].name;
+      }
+    }
+  }
+  return es;
+}

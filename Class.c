@@ -71,6 +71,15 @@ int main(int argc, char *argv[]) {
   const char c = getGrade(g);
   printf("%c\n", c);
 
+  Student * namesS1 = assignNames(students, studentExam1);
+  for(i = 0; i < exam1->numOfS; i++){
+     printf("%d: %s", namesS1[i].id, namesS1[i].name);
+  }
+  printf("\n");
+  Student * namesS2 = assignNames(students, studentExam2);
+  for(i = 0; i < exam2->numOfS; i++){
+     printf("%d: %s", namesS2[i].id, namesS2[i].name);
+  }
 /*  GtkWidget *window;
   GtkWidget *vbox;
 

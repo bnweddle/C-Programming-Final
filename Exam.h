@@ -35,4 +35,9 @@ Exam * getExamInfo(char * filename); //done already
 //based on answers of he students and the answer of the exam 
 double computeScore(char * exam, char * student);//done already
 
+//Need to pass in the Student * from the file and then the specific Student * read from the exam file
+//Then assign the if a matching id is found, assign the name of the fs to the name of es 
+//then return the modified es
+Student * assignNames(Student * fs, Student * es);
+
 #endif /* Exam_h */

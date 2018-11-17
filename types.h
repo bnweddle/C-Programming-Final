@@ -14,7 +14,7 @@ typedef struct Student{
     int id;
     int num;
     char * name;
-    int grade;
+    char grade;
     char * answers;
 }Student;
 
