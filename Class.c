@@ -66,10 +66,12 @@ int main(int argc, char *argv[]) {
      printf("Id: %d Answers: %s\n", studentExam2[i].id, studentExam2[i].answers);
   }
 
-  computeScore(exam1->answers,studentExam1[0].answers);
+  double score = computeScore(exam1->answers,studentExam1[0].answers);
+  enum grade g = check(score);
+  const char c = getGrade(g);
+  printf("%c\n", c);
 
-/*
-  GtkWidget *window;
+/*  GtkWidget *window;
   GtkWidget *vbox;
 
   GtkWidget *class1;
@@ -98,8 +100,7 @@ int main(int argc, char *argv[]) {
   gtk_widget_show_all(window);
 
   gtk_main();
-*/
-   return 0;
+*/   return 0;
 }
 
 

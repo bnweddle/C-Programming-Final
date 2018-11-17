@@ -17,6 +17,9 @@ enum bool compare(char e, char s);
 // check the letter of the grade by using if else to fine the right letter: done already
 enum grade check(double);
 
+//returns the grade letter;
+const char getGrade(enum grade g);
+
 //get the names of the students to be displayed: done already
 Student * getStudentInfo();
 

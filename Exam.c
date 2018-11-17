@@ -11,20 +11,31 @@
 #include <string.h>
 
 enum grade check(double g){
- 
+  
   if(g >= 90.0 && g <= 100.0){
-    return A;} 
+    return A;
+  } 
   else if(g >= 80.0 && g <= 89.9){
     return B; }
   else if(g >= 70.0 && g <= 79.9){
-    return  C; }
+    return C; }
   else if(g >= 60.0 && g <= 69.9){
     return D; }
   else {
      return F; 
-  } 
+  }
 }
 
+const char getGrade(enum grade g)
+{
+  switch(g){
+    case A: return 'A'; break;
+    case B: return 'B'; break;
+    case C: return 'C'; break;
+    case D: return 'D'; break;
+    case F: return 'F'; break;
+ }
+}
 enum bool compare(char e, char s){
    if(e  == s)
       return TRUE;
