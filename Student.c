@@ -83,3 +83,30 @@ Student * assignGrade(Exam * e, Student * n, Student * es){
     return n;
 }
 
+void AppendStudentFile(Student * info){
+
+   Student * s = getStudentInfo();
+   int newNum = s->num +1;
+   
+   FILE * fp = fopen("students.txt", "w");
+   fprintf(fp,"%d\n", newNum);
+   for(int i  = 0; i< s->num; i++){
+     fprintf(fp,"%d,%s\n",s->id,s->name);
+   }
+   fprintf(fp,"%d,%s\n",info->id,info->name);
+
+   fclose(fp);
+}
+
+bool checkId(int id){
+  
+  Student * studentInfo = getStudentInfo();
+  bool bad = FALSE;
+  for(int i = 0; i < studentInfo->num; i++){
+     if(studentInfo->id == id){
+        bad = TRUE;
+     else
+       studentInfo++;
+  }
+  return bad;
+}
