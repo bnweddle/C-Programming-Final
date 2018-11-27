@@ -22,6 +22,7 @@ typedef struct Exam {
     char * answers;
     int numOfS;
     int numOfQ;
+    int cID;
 }Exam;
 
 

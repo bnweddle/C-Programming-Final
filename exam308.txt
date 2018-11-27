@@ -1,4 +1,4 @@
-5 5
+5 5 1
 ABCDE
 1,ABBDE
 2,ADEBE
