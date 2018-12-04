@@ -8,7 +8,7 @@
 #include <gtk/gtk.h>
 #include <gdk/gdkkeysyms.h>
 
-Class * showAllClasses(){
+Class * getClassesInfo(){
     //This finally works!!
     FILE* fp;
     
@@ -47,3 +47,4 @@ char * assignName(Class * c, int id)
     return NULL;
     
 }
+

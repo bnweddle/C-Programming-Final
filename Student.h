@@ -10,4 +10,9 @@
 
 #include <stdio.h>
 
+Student * getStudentInfo();
+Student * getStudentAnswers(char *);
+Student * assignNames(Student *, Student *);
+Student * assignGrade(Exam *, Student *, Student *);
+void AppendStudentFile(char *);
 #endif /* Student_h */

@@ -1,11 +1,13 @@
 //
-//  Student.c
+//  functionsFile.c
 //
 
-#include "Student.h"
+#include "functionsFile.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+
 
 Student * getStudentInfo()
 {
@@ -43,7 +45,7 @@ Student * getStudentAnswers(char * filename)
     int classID = 0;
     
     fscanf(fp, "%d %d %d", &numOfS, &numOfQ, &classID);
-        
+    
     char * answers = malloc((numOfQ + 1) * sizeof(char));
     fscanf(fp, "%s\n", answers);
     
@@ -94,7 +96,7 @@ Student * assignGrade(Exam * e, Student * n, Student * es)
     return n;
 }
 
-void AddNewStudent(char * name)
+void AppendStudentFile(char * name)
 {
     Student * s = getStudentInfo();
     int newNum = s->num + 1;
@@ -103,7 +105,7 @@ void AddNewStudent(char * name)
     fprintf(fp,"%d\n", newNum);
     for(int i  = 0; i < s->num; i++)
     {
-        fprintf(fp,"%d,%s", s[i].id, s[i].name);
+        fprintf(fp,"%d,%s\n", s->id, s->name);
     }
     fprintf(fp,"%d,%s\n", newNum, name);
     fclose(fp);

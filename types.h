@@ -25,7 +25,4 @@ typedef struct Exam {
     int cID;
 }Exam;
 
-
-
-
 #endif /* types_h */

@@ -35,10 +35,8 @@ char getGrade(enum grade g)
 
 enum bool compare(char e, char s)
 {
-    if(e  == s)
-        return TRUE;
-    else
-        return FALSE;
+    if(e == s) return TRUE;
+    else return FALSE;
 }
 
 double computeScore(char * exam, char * student)
@@ -47,6 +45,7 @@ double computeScore(char * exam, char * student)
     //first chars of strings
     char * e = exam;
     char * s = student;
+    
     double eCount = 0.0;
     double count = 0.0;
 
@@ -54,41 +53,14 @@ double computeScore(char * exam, char * student)
     {
         if(compare(*e,*s)==TRUE)
             count++;
+        
         eCount++;
         e++;
         s++;
     }
     count = (count/eCount) * 100;
-    //   printf("%f\n", count);
     return count;
 }
-/*
-void readExamFile(char * filename)
-{
-    FILE * fp = fopen(filename, "r");
-    Exam * e = malloc(sizeof(Exam));
-    
-    e = getExamInfo(fp, e);
-    
-    fclose(fp);
-}
-
-Exam * getExamInfo(FILE fp, Exam e)
-{
-    int numOfS = 0;
-    int numOfQ = 0;
-    
-    fscanf(fp, "%d %d", &numOfS, &numOfQ);
-    e->numOfS = numOfS;
-    e->numOfQ = numOfQ;
-    
-    char * answers = malloc((numOfQ+1) * sizeof(char));
-    fscanf(fp, "%s", answers);
-    e->answers = answers;
-    return e;
-}
-
-*/
 
 Exam * getExamInfo(char * filename)
 {

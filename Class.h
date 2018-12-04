@@ -11,6 +11,6 @@
 #include <stdio.h>
 #include "types.h"
 
-struct Class* showAllClasses();
-
+struct Class* getClassesInfo();
+char * assignName(Class *, int);
 #endif /* Class_h */
